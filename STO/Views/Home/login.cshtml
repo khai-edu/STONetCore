@@ -1,0 +1,28 @@
+﻿@using STO.DataTransferObjects;
+@model UserDto;
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="tube">
+    <form asp-action="LoginPost">
+        @Html.HiddenFor(userDto => userDto.ReturnUrl)
+        <div class="container">
+            <div class="block-inline">
+                <div class="">
+                    <label class=""></label>
+                    <input asp-for="Login" class="log-label" placeholder="Login" />
+                    <span asp-validation-for="Login" class=""></span>
+                </div>
+                <div class="">
+                    <label class=""></label>
+                    <input asp-for="Password" type="password" class="log-label" placeholder="Password" />
+                    <span asp-validation-for="Password" class=""></span>
+                </div>
+
+                <div class="">
+                    <button class="butt-log" type="submit">Вхід</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
