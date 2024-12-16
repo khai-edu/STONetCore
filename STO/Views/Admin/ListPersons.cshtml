@@ -1,0 +1,80 @@
+﻿@model Person;
+<form id="list_plan_form" method="post" class="row">
+    <div class="conteiner">
+        <div class="row pt-4">
+            <div class="col-6">
+                <h2>
+                    Користувачі
+                </h2>
+            </div>
+            <div class="col-6 text-end">
+                <a asp-controller="Admin" asp-action="AddPerson"  class="btn btn-dark">
+                    <i class="bi bi-plus-circle-fill"></i> Додати користувача
+                </a>
+            </div>
+        </div>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Повне ім'я</th>
+                <th>Статуси</th>
+                <th>Редагувати параметри</th>
+                <th>Відкрити</th>
+                <th>Копіювати</th>
+                <th>Видалити</th>
+            </tr>
+            @foreach (var plan in Model.Plans!)
+            {
+                <tr>
+                    <td>@plan.Name</td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            @if (plan.Ready == 1)
+                            {
+                                <span class="btn btn-success mx-2"><i class="bi bi-calculator"></i>До розрахунку</span>
+                            }
+                            @if (plan.LockedOut == 1)
+                            {
+                                <span class="btn btn-danger mx-2"><i class="bi bi-ban"></i>Заблоковано</span>
+                            }
+                        </div>
+                    </td>
+                    <td>
+                        <a asp-controller="User" asp-action="EditPlan" asp-route-id="@plan.Id" class="btn btn-primary mx-2">
+                            <i class="bi bi-pencil-square"></i>Редагувати параметри
+                        </a>
+                        @if (plan.Draw == 1)
+                        {
+                            <a asp-controller="User" asp-action="DrawPlan" asp-route-id="@plan.Id" class="btn btn-primary mx-2">
+                                <i class="bi bi-bezier"></i>Освітні траєкторії
+                            </a>
+                        }
+                    </td>
+                    <td>
+                        <a asp-controller="User" asp-action="OpenPlan" asp-route-id="@plan.Id" class="btn btn-info mx-2">
+                            <i class="bi bi-opencollective"></i>Відкрити
+                        </a>
+                    </td>
+                    <td>
+                        <a asp-controller="User" asp-action="CopyPlan" asp-route-id="@plan.Id" class="btn btn-info mx-2">
+                            <i class="bi bi-opencollective"></i>Копіювати
+                        </a>
+                    </td>
+                    <td>
+                        <a asp-controller="User" asp-action="DeletePlan" asp-route-id="@plan.Id" class="btn btn-danger mx-2">
+                            <i class="bi bi-opencollective"></i>Видалити
+                        </a>
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+</form>
+
+<script>
+    function SelectedYearChanged() {
+        // do something;
+
+        document.getElementById("list_plan_form").submit();
+    }
+</script>
