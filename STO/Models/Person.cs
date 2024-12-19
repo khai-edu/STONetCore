@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace STO.Models;
 
@@ -7,11 +8,13 @@ public partial class Person
 {
     public int Id { get; set; }
 
-    public string? FullName { get; set; }
+    [DisplayName("Повне ім'я")]
+    public string FullName { get; set; }
 
-    public string? Email { get; set; }
+    public string Email { get; set; }
 
-    public string? Phone { get; set; }
+    [DisplayName("Телефон")]
+    public string Phone { get; set; }
 
     public virtual ICollection<Client> Clients { get; set; } = new List<Client>();
 
