@@ -60,25 +60,12 @@ namespace STO.Controllers
 
             return RedirectToAction("Index");
 
-            /*
-            try
-            {
-                await context.Database.CanConnectAsync();
-               
-                var dbUser = context.Users.FirstOrDefault(user =>
-                user.Login == user.Login && user.Password == user.Password);
-                if (dbUser != null)
-                {
-
-                    return true;
-                }
-                else { return false; }
-            }
-            catch (Exception ex)
-            {
-                
-                return false;
-            }*/
+           
+        }
+        public async Task<IActionResult> LogOff()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login");
         }
     }
 }

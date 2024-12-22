@@ -1,41 +1,37 @@
-﻿@model List<User>;
+﻿@model List<Brand>;
 <form id="list_plan_form" method="post" class="row">
     <div class="conteiner">
         <div class="row pt-4">
             <div class="col-6">
                 <h2>
-                    Користувачі
+                    Виробники автомобілів
                 </h2>
             </div>
             <div class="col-6 text-end">
-                <a asp-controller="Admin" asp-action="AddUser"  class="btn btn-dark">
-                    <i class="bi bi-plus-circle-fill"></i> Додати користувача
+                <a asp-controller="Admin" asp-action="AddBrand"  class="btn btn-dark">
+                    <i class="bi bi-plus-circle-fill"></i> Додати виробника
                 </a>
             </div>
         </div>
         <table class="table table-bordered table-striped">
             <tr>
-                <th>Повне ім'я</th>
-                <th>Email</th>
-                <th>Телефон</th> 
-                <th>Роль</th>
+                <th>Назва</th>
+                <th>Веб-сайт</th>
                 <th>Редагувати</th>
                 <th>Видалити</th>
             </tr>
-            @foreach (var user in Model)
+            @foreach (var brand in Model)
             {
                 <tr>
-                    <td>@user.Person.FullName</td>
-                    <td>@user.Person.Email</td>
-                    <td>@user.Person.Phone</td>
-                    <td>@user.Role</td>
+                    <td>@brand.Name</td>
+                    <td>@brand.Website</td>                    
                     <td>
-                        <a asp-controller="Admin" asp-action="EditUser" asp-route-id="@user.Id" class="btn btn-info mx-2">
+                        <a asp-controller="Admin" asp-action="EditBrand" asp-route-id="@brand.Id" class="btn btn-info mx-2">
                             <i class="bi bi-opencollective"></i>Редагувати
                         </a>
                     </td>
                     <td>
-                        <a asp-controller="Admin" asp-action="DeleteUser" asp-route-id="@user.Id" class="btn btn-danger mx-2">
+                        <a asp-controller="Admin" asp-action="DeleteBrand" asp-route-id="@brand.Id" class="btn btn-danger mx-2">
                             <i class="bi bi-opencollective"></i>Видалити
                         </a>
                     </td>
