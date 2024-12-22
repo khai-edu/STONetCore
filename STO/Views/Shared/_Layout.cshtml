@@ -12,15 +12,17 @@
     <header>
         @if (User.Identity!.IsAuthenticated)
         {
-            <div class="user_unbow">
-                <div class="dropdown">
-                    <button class="user_login" onclick="myFunction()"
-                            asp-controller="Home" asp-action="Index" data-username="@User.Identity.Name">
+            <div class="row" style="justify-content: flex-end;">
+                
+                    <div class="col-2 text-end align-middle">
+                    <span class="modal-title user_login" style="line-height: 2.5;">
                         @User.Identity.Name
-                    </button>
+                    </span></div>
+                <div class="col-1 text-end">
                     <form asp-controller="Home" asp-action="Logoff">
-                        <button class="but-log">Вихід</button>
+                        <button class="but-log btn btn-danger mx-2 text-end">Вихід</button>
                     </form>
+                
                 </div>
             </div>
         }
@@ -28,7 +30,7 @@
         {
             <form asp-action="Login">
                 <div class="unibrow">
-                    <button class="but-log">Вхід</button>
+                    <button class="btn btn-info mx-2 but-log">Вхід</button>
                 </div>
             </form>
         }
@@ -46,7 +48,7 @@
                             if (User.IsInRole("User"))
                             {
                                 <li>
-                                    <a class="text-dark" asp-controller="User" asp-action="ListPlans">
+                                    <a class="nav-link" asp-controller="User" asp-action="ListPlans">
                                         Навчальні плани
                                     </a>
                                 </li>
@@ -55,20 +57,20 @@
                             if (User.IsInRole("Admin"))
                             {
                                 <li>
-                                    <a class="text-dark" asp-controller="Admin" asp-action="ListPersons">
+                                    <a class="nav-link" asp-controller="Admin" asp-action="ListPersons">
                                         Фізичні особи
                                     </a>
                                      &nbsp;
                                 </li>
                                 <li>
-                                    <a class="text-dark" asp-controller="Admin" asp-action="ListUsers">
+                                    <a class="nav-link" asp-controller="Admin" asp-action="ListUsers">
                                         Користувачі
                                     </a>
                                     &nbsp;
                                 </li>
 
                                 <li>
-                                 <a class="text-dark" asp-controller="Admin" asp-action="ListBrends">
+                                    <a class="nav-link" asp-controller="Admin" asp-action="ListBrends">
                                         Бренди
                                  </a>
                                 </li>
@@ -86,8 +88,8 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - STO - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container" style="text-align: center;">
+            &copy; 2024 - STO
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
