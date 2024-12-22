@@ -44,9 +44,6 @@ public partial class StoContext : DbContext
 
     public virtual DbSet<WpLog> WpLogs { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("server=195.88.72.88;database=sto;user=sto_admin;password=qwerty", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.28-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -62,9 +59,7 @@ public partial class StoContext : DbContext
 
             entity.Property(e => e.Name).HasMaxLength(50);
             entity.Property(e => e.Website).HasMaxLength(30);
-            entity.Property(e => e.Ws2)
-                .HasMaxLength(255)
-                .HasColumnName("WS2");
+
         });
 
         modelBuilder.Entity<Car>(entity =>
