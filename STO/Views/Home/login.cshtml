@@ -7,22 +7,27 @@
     <form asp-action="LoginPost">
         @Html.HiddenFor(userDto => userDto.ReturnUrl)
         <div class="container">
-            <div class="block-inline">
-                <div class="">
-                    <label class=""></label>
-                    <input asp-for="Login" class="log-label" placeholder="Login" />
-                    <span asp-validation-for="Login" class=""></span>
-                </div>
-                <div class="">
-                    <label class=""></label>
-                    <input asp-for="Password" type="password" class="log-label" placeholder="Password" />
-                    <span asp-validation-for="Password" class=""></span>
-                </div>
+            <div class=" row justify-content-center">
+                <div class="col-2">
+                    <div class="">
+                        <label class=""></label>
+                        <input asp-for="Login" class="form-control log-label" placeholder="Login" />
+                        <span asp-validation-for="Login" class=""></span>
+                    </div>
+                    <div class="">
+                        <label class=""></label>
+                        <input asp-for="Password" type="password" class=" form-control log-label" placeholder="Password" />
+                        <span asp-validation-for="Password" class=""></span>
+                    </div>
+                    @*<a style="visibility: hidden;" href="c:\projects\stonetcore\sto\views\home\login.cshtml">c:\projects\stonetcore\sto\views\home\login.cshtml</a>*@
 
-                <div class="">
-                    <button class="butt-log" type="submit">Вхід</button>
+                    <div class="text-center">
+                        <button class="btn btn-info mx-2 butt-log" type="submit">Вхід</button>
+                    </div>
                 </div>
             </div>
         </div>
+
     </form>
 </div>
+
