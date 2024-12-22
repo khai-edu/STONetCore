@@ -12,7 +12,7 @@
 
         <div class="mb-3 row p-1">
             <label class="p-0">Оберіть виробника зі списку</label>
-            <select asp-for="@Model.model.Id" class="form-control"
+            <select asp-for="@Model.model.BrandId" class="form-control"
                     asp-items="@Model.BrandList" id="discipline_ddl">
             </select>
         </div>        
@@ -23,11 +23,11 @@
         </div>
         <div class="mb-3 row p-1">
             <label asp-for="model.Revision" class="p-0"></label>
-            <input asp-for="model.Revision" class="form-control" type="password" />
+            <input asp-for="model.Revision" class="form-control" />
         </div>
         <div class="mb-3 row p-1">
             <label asp-for="model.Startyear" class="p-0"></label>
-            <input asp-for="model.Startyear" class="form-control" type="password" />
+            <input asp-for="model.Startyear" class="form-control"/>
         </div>
 
          <div class="row pt-2">
