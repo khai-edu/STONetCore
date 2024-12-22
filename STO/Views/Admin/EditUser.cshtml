@@ -1,10 +1,11 @@
 ﻿@using STO.DataTransferObjects;
 @model EditUserDto;
 <form method="post" class="row">
+    <input asp-for="user.Id" id="user_id" hidden value="@Model.user.Id" />
     <div class="border p-3 mt-4">
         <div class="border p-3 mt-4">
             <div class="row pb-2">
-                <h2>Додавання корисьтувача</h2>
+                <h2>Редагування користувача</h2>
                 <hr />
             </div>
         </div>
@@ -29,11 +30,11 @@
         </div>
         <div class="mb-3 row p-1">
             <label asp-for="user.Password" class="p-0"></label>
-            <input asp-for="user.Password" class="form-control" type="password" />
+            <input asp-for="user.Password"  class="form-control" />
         </div>
          <div class="row pt-2">
             <div class="col-6 col-md-3">
-                <button type="submit" class="btn btn-dark form-control">Створити</button>
+                <button type="submit" class="btn btn-dark form-control">Зберегти</button>
             </div>
             <div class="col-6 col-md-3">
                 <a asp-controller="Admin" asp-action="ListUsers" class="btn btn-outline-dark border form-control">

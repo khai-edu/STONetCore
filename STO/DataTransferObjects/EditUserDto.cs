@@ -6,5 +6,6 @@ public record EditUserDto
 (
     User user,
     int PersonId,
-    IEnumerable<SelectListItem> PersonList
+    IEnumerable<SelectListItem> PersonList,
+    IEnumerable<SelectListItem> RoleList
 );

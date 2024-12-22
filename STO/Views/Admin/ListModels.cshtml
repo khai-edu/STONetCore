@@ -1,0 +1,47 @@
+﻿@model List<Model>;
+<form id="list_plan_form" method="post" class="row">
+    <div class="conteiner">
+        <div class="row pt-4">
+            <div class="col-6">
+                <h2>
+                    Моделі автомобілів
+                </h2>
+            </div>
+            <div class="col-6 text-end">
+                <a asp-controller="Admin" asp-action="AddModel"  class="btn btn-dark">
+                    <i class="bi bi-plus-circle-fill"></i> Додати модель
+                </a>
+            </div>
+        </div>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Назва</th>
+                <th>Виробник</th>
+                <th>Ревізія</th> 
+                <th>Рік початку виробництва</th>
+                <th>Редагувати</th>
+                <th>Видалити</th>
+            </tr>
+            @foreach (var carmodel in Model)
+            {
+                <tr>
+                    <td>@carmodel.Name</td>
+                    <td>@carmodel.Brand.Name</td>
+                    <td>@carmodel.Revision</td>
+                    <td>@carmodel.Startyear</td>
+                    <td>
+                        <a asp-controller="Admin" asp-action="EditModel" asp-route-id="@carmodel.Id" class="btn btn-info mx-2">
+                            <i class="bi bi-opencollective"></i>Редагувати
+                        </a>
+                    </td>
+                    <td>
+                        <a asp-controller="Admin" asp-action="DeleteModel" asp-route-id="@carmodel.Id" class="btn btn-danger mx-2">
+                            <i class="bi bi-opencollective"></i>Видалити
+                        </a>
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+</form>
