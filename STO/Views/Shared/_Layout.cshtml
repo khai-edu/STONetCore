@@ -14,16 +14,17 @@
         {
             <div class="row" style="justify-content: flex-end;">
 
+
                 <div class="col-2 text-end align-middle">
                     <span class="modal-title user_login" style="line-height: 2.5;">
                         @User.Identity.Name
                     </span>
                 </div>
+
                 <div class="col-1 text-end">
                     <form asp-controller="Home" asp-action="Logoff">
                         <button class="but-log btn btn-danger mx-2 text-end">Вихід</button>
                     </form>
-
                 </div>
             </div>
         }
@@ -71,6 +72,7 @@
                                 </li>
 
                                 <li>
+
                                     <a class="nav-link" asp-controller="Admin" asp-action="ListBrands">
                                         Бренди
                                     </a>
